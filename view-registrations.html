@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Registrations - Campus Events</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>View Registrations</h1>
+        <p>Manage student event registrations</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="events.html">Events</a>
+        <a href="registration.html">Registration</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="view-registrations.html">View Registrations</a>
+    </nav>
+
+    <main>
+        <h2>Registered Students</h2>
+
+        <div id="registration-list"></div>
+
+        <button type="button" id="clear-registrations">
+            Clear All Registrations
+        </button>
+    </main>
+
+    <footer>
+        <p>Campus Events</p>
+    </footer>
+
+    <script>
+        const container = document.getElementById("registration-list");
+        const clearButton = document.getElementById("clear-registrations");
+
+        function displayRegistrations() {
+            const registrations = JSON.parse(
+                localStorage.getItem("registrations") || "[]"
+            );
+
+            container.replaceChildren();
+
+            if (registrations.length === 0) {
+                const message = document.createElement("p");
+                message.textContent = "No registrations found.";
+                container.appendChild(message);
+                return;
+            }
+
+            const table = document.createElement("table");
+            table.style.width = "100%";
+            table.style.backgroundColor = "white";
+            table.style.borderCollapse = "collapse";
+
+            const headings = [
+                "Student Name",
+                "Registration Number",
+                "Email",
+                "Event"
+            ];
+
+            const headerRow = document.createElement("tr");
+
+            headings.forEach(function (heading) {
+                const th = document.createElement("th");
+                th.textContent = heading;
+                th.style.padding = "12px";
+                th.style.border = "1px solid #ccc";
+                th.style.backgroundColor = "#1e3a5f";
+                th.style.color = "white";
+                headerRow.appendChild(th);
+            });
+
+            table.appendChild(headerRow);
+
+            registrations.forEach(function (registration) {
+                const row = document.createElement("tr");
+
+                [
+                    registration.name,
+                    registration.regno,
+                    registration.email,
+                    registration.event
+                ].forEach(function (value) {
+                    const cell = document.createElement("td");
+                    cell.textContent = value;
+                    cell.style.padding = "12px";
+                    cell.style.border = "1px solid #ccc";
+                    row.appendChild(cell);
+                });
+
+                table.appendChild(row);
+            });
+
+            container.appendChild(table);
+        }
+
+        clearButton.addEventListener("click", function () {
+            const confirmed = confirm(
+                "Are you sure you want to delete all registrations?"
+            );
+
+            if (confirmed) {
+                localStorage.removeItem("registrations");
+                displayRegistrations();
+                alert("All registrations have been cleared.");
+            }
+        });
+
+        displayRegistrations();
+    </script>
+    <script src="js/theme.js"></script>
+</body>
+</html>
