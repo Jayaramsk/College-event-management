@@ -1,0 +1,365 @@
+/* General Page Design */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f7fc;
+    color: #263247;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #142b4a, #2864a5);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 32px;
+    letter-spacing: 0.5px;
+}
+
+header p {
+    margin-bottom: 0;
+    color: #e0eaff;
+}
+
+/* Navigation */
+nav {
+    background-color: #102440;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 9px 14px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #2864a5;
+}
+
+/* Main Content */
+main {
+    width: 90%;
+    max-width: 1100px;
+    margin: 35px auto;
+    min-height: 300px;
+}
+
+main h2 {
+    color: #173b67;
+    margin-bottom: 18px;
+}
+
+main p {
+    line-height: 1.7;
+}
+
+/* Event Cards */
+.event {
+    background-color: white;
+    padding: 22px;
+    margin: 20px 0;
+    border-radius: 12px;
+    border: 1px solid #e5eaf2;
+    box-shadow: 0 4px 15px rgba(30, 58, 95, 0.08);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.event:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 22px rgba(30, 58, 95, 0.14);
+}
+
+.event h3 {
+    color: #1e4e85;
+    margin-top: 10px;
+}
+
+/* Event Images */
+.event img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 9px;
+    margin-bottom: 10px;
+}
+
+/* Buttons */
+.button,
+button {
+    display: inline-block;
+    background-color: #2463a6;
+    color: white;
+    padding: 11px 20px;
+    border: none;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.25s;
+}
+
+.button:hover,
+button:hover {
+    background-color: #153e70;
+}
+
+/* Registration Form */
+form {
+    background-color: white;
+    padding: 28px;
+    border-radius: 12px;
+    border: 1px solid #e5eaf2;
+    box-shadow: 0 4px 15px rgba(30, 58, 95, 0.08);
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+label {
+    display: block;
+    margin-top: 16px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+input,
+select {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    background-color: #fff;
+    font-size: 15px;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid #80b5f0;
+    border-color: #2463a6;
+}
+
+/* Registration Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    margin-top: 20px;
+}
+
+th,
+td {
+    padding: 12px;
+    border: 1px solid #dce3ed;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+th {
+    background-color: #173b67;
+    color: white;
+}
+
+/* Footer */
+footer {
+    background-color: #102440;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 45px;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Mobile-Friendly Design */
+@media (max-width: 600px) {
+    header {
+        padding: 28px 15px;
+    }
+
+    header h1 {
+        font-size: 25px;
+    }
+
+    nav {
+        gap: 5px;
+        padding: 10px;
+    }
+
+    nav a {
+        padding: 8px;
+        font-size: 13px;
+        margin: 0;
+    }
+
+    main {
+        width: 92%;
+        margin: 22px auto;
+    }
+
+    .event {
+        padding: 16px;
+    }
+
+    .event img {
+        height: 180px;
+    }
+
+    form {
+        padding: 20px;
+    }
+}
+/* Dark Mode */
+body.dark-mode {
+    background-color: #111827;
+    color: #e5e7eb;
+}
+
+body.dark-mode header {
+    background: linear-gradient(135deg, #020617, #1e3a5f);
+    color: #ffffff;
+}
+
+body.dark-mode nav {
+    background-color: #020617;
+}
+
+body.dark-mode nav a {
+    color: #e5e7eb;
+}
+
+body.dark-mode nav a:hover {
+    background-color: #334155;
+}
+
+body.dark-mode main h2,
+body.dark-mode .event h3 {
+    color: #93c5fd;
+}
+
+body.dark-mode .event,
+body.dark-mode form {
+    background-color: #1f2937;
+    color: #e5e7eb;
+    border-color: #374151;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode input,
+body.dark-mode select {
+    background-color: #111827;
+    color: #ffffff;
+    border-color: #4b5563;
+}
+
+body.dark-mode input::placeholder {
+    color: #9ca3af;
+}
+
+body.dark-mode th {
+    background-color: #1e3a5f;
+    color: #ffffff;
+}
+
+body.dark-mode td {
+    background-color: #1f2937;
+    color: #e5e7eb;
+    border-color: #4b5563;
+}
+
+body.dark-mode footer {
+    background-color: #020617;
+    color: #e5e7eb;
+}
+
+body.dark-mode .button,
+body.dark-mode button {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+body.dark-mode .button:hover,
+body.dark-mode button:hover {
+    background-color: #1d4ed8;
+}
+
+/* Dark Mode Toggle Button */
+.theme-toggle {
+    background-color: #ffffff;
+    color: #172b4d;
+    border: none;
+    border-radius: 20px;
+    padding: 9px 15px;
+    margin: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.theme-toggle:hover {
+    background-color: #dbeafe;
+}
+
+body.dark-mode .theme-toggle {
+    background-color: #374151;
+    color: #ffffff;
+}
+/* Event Search */
+.search-container {
+    margin: 20px 0 30px;
+}
+
+#eventSearch {
+    width: 100%;
+    max-width: 600px;
+    padding: 14px 16px;
+    font-size: 16px;
+    border: 2px solid #d1dbe8;
+    border-radius: 10px;
+    background-color: white;
+    color: #263247;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#eventSearch:focus {
+    border-color: #2463a6;
+    box-shadow: 0 0 0 3px rgba(36, 99, 166, 0.15);
+}
+
+#searchMessage {
+    color: #64748b;
+    margin-top: 10px;
+}
+
+body.dark-mode #eventSearch {
+    background-color: #1f2937;
+    color: white;
+    border-color: #4b5563;
+}
+
+body.dark-mode #searchMessage {
+    color: #cbd5e1;
+}
+
+.event.hidden {
+    display: none;
+}
